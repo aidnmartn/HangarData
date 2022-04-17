@@ -3,3 +3,4 @@ pandas
 pyxlsb
 pickle5
 xlsxwriter
+datetime
