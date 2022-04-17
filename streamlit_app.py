@@ -45,7 +45,6 @@ hangarId = form.text_input("Enter the hangar code of the hangar you would like t
 tenant = form.text_input("Enter the name of the new tenant:")
 tail = form.text_input("Enter the tail number of the aircraft:")
 type = form.text_input("Enter the type of aircraft:")
-col2.write(hangarData)
 
 
 
