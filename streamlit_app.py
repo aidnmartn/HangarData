@@ -83,5 +83,12 @@ with st.sidebar:
     now = datetime.now()
     dt_string = now.strftime("%d-%m-%Y_%H.%M.%S")
     st.download_button(label='Download hangar data as Excel file', data=df_xlsx , file_name= f'HangarData_{dt_string}.xlsx')
+    clear = st.button("Clear All Data")
+    if clear:
+        hangarColumns = ['Tenant', 'Tail Number', 'Type']
+        indices = ['A', 'B', 'C', '1A', '2B', '3C', '4D', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '38', '39', '40', '41', '42', '43', '44', '45', '46', '46A', '47', '48', '49', '50', '51', '52', '53', '54', '55', '55A']
+        hangarData = pd.DataFrame(columns=hangarColumns, index=indices)
+        hangarData = hangarData.fillna('')
+        hangarData.to_pickle('HangarData.pkl')
 
 #coords.to_csv('coords.csv')
