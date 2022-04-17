@@ -50,10 +50,9 @@ def updateImage(xy, data):
 
 hangarData = pd.read_pickle('HangarData.pkl') 
 container = st.container()
-updateImage(coords,hangarData)
+
 help = st.expander('Help')
 form = st.form("HangarEdit")
-st.write(hangarData)
 help.write("Use this form to update the *tenant*, *tail number*, and *type of aircraft* in each hangar.")
 help.write('**To clear a hangar**, enter in the Hangar ID, leave the rest of the fields blank, and click "Update Hangar Info"')
 help.write('**To display the hangar chart and data table** without changing data, leave all fields blank and click "Update Hangar Info"')
@@ -77,7 +76,9 @@ if form.form_submit_button("Update Hangar Info"):
         st.error("Enter a valid Hangar ID")
     st.write(hangarData)
     updateImage(coords,hangarData)
-
+else:
+    st.write(hangarData)
+    updateImage(coords,hangarData)
 
 
 
