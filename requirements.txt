@@ -2,3 +2,4 @@ pillow
 pandas
 pyxlsb
 pickle5
+xlsxwriter
