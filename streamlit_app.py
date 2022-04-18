@@ -63,6 +63,7 @@ hangarId = form.selectbox("Choose the Hangar ID of the hangar you would like to 
 tenant = form.text_input("Enter the last name of the new tenant:")
 tail = form.text_input("Enter the tail number of the aircraft:")
 type = form.text_input("Enter the type of aircraft:")
+info = form.text_input("Enter any other info to store in the hangar data table (contact, notes, etc.)")
 if form.form_submit_button("Update Hangar Info"):
     if hangarId in hangarData.index:
 
@@ -70,6 +71,7 @@ if form.form_submit_button("Update Hangar Info"):
         hangarData.at[hangarId, 'Tenant'] = tenant
         hangarData.at[hangarId, 'Tail Number'] = tail
         hangarData.at[hangarId, 'Type'] = type
+        hangarData.at[hangarId, 'Info'] = info
         hangarData.to_pickle('HangarData.pkl')
     else:
         st.error("Enter a valid Hangar ID")
@@ -88,8 +90,9 @@ with st.sidebar:
     dt_string = now.strftime("%d-%m-%Y_%H.%M.%S")
     st.download_button(label='Download hangar data as Excel file', data=df_xlsx , file_name= f'HangarData_{dt_string}.xlsx')
     clear = st.button("Clear All Data")
+    st.caption("*May need to click 'Clear Data' twice to clear*")
     if clear:
-        hangarColumns = ['Tenant', 'Tail Number', 'Type']
+        hangarColumns = ['Tenant', 'Tail Number', 'Type', 'Info']
         indices = ['A', 'B', 'C', '1A', '2B', '3C', '4D', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '38', '39', '40', '41', '42', '43', '44', '45', '46', '46A', '47', '48', '49', '50', '51', '52', '53', '54', '55', '55A']
         hangarData = pd.DataFrame(columns=hangarColumns, index=indices)
         hangarData = hangarData.fillna('')
