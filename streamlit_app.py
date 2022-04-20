@@ -10,7 +10,7 @@ from datetime import datetime
 title = Image.open('title.png')
 icon = Image.open('icon1.png')
 layout = Image.open('HangarLayout.png')
-st.set_page_config(page_title="Hangars", page_icon=icon, layout="wide", initial_sidebar_state="expanded", menu_items=None)
+st.set_page_config(page_title="Hangar Dashboard", page_icon=icon, layout="wide", initial_sidebar_state="expanded", menu_items=None)
 title1, title2, title3 = st.columns(3)
 title1.image(title, use_column_width='always')
 st.title("JGG Hangar Dashboard")
